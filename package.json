@@ -4,7 +4,10 @@
   "description": "ejerciico para aprender el dom en js y reañizacion de test",
   "main": "app.js",
   "scripts": {
-    "test": "npm t"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
