@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>Práctica del DOM</title>
 </head>
 
@@ -14,54 +15,55 @@
     <div class="product-image" role="banner">
     </div>
     <section class="product-description">
-      <h6 class="tag">CARRO</h6>
-      <h1 class="product-title">Mercedez Benz c300 2022</h1>
-      <div class="product-details">
-        <p class="mileage">
-          <span style="font-size: 1em; color: black"><i class="fa-solid fa-car"></i></span>
-          Kilometraje: 4,000 millas
-        </p>
-        <p class="fuel">
-          <span style="font-size: 1em; color: black"><i class="fa-solid fa-gas-pump"></i></span>
-          Combustible: 25mpg
-        </p>
-        <p class="safety">
-          <span style="font-size: 1em; color: black"><i class="fa-solid fa-shield"></i></span>
-          Seguridad:
-          <span class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+      <div>
+        <h6 class="tag">CARRO</h6>
+        <h1 class="product-title">Mercedez Benz c300 2022</h1>
+        <div class="product-details">
+          <p class="mileage">
+            <span style="font-size: 1em; color: black"><i class="fa-solid fa-car"></i></span>
+            Kilometraje: 4,000 millas
+          </p>
+          <p class="fuel">
+            <span style="font-size: 1em; color: black"><i class="fa-solid fa-gas-pump"></i></span>
+            Combustible: 25mpg
+          </p>
+          <p class="safety">
+            <span style="font-size: 1em; color: black"><i class="fa-solid fa-shield"></i></span>
+            Seguridad:
+            <span class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+          </p>
+        </div>
+        <p class="choose-color">Escoge un color:</p>
+        <div class="colors-price">
+          <div class="colors">
+            <span class="red"></span>
+            <span class="gray"></span>
+            <span class="black"></span>
+          </div>
+          <div class="pricing">
+            <p class="new-price">$134,450</p>
+            <del class="old-price">$140,500</del>
+          </div>
+        </div>
+        <button id="button" class="button-add-cart">
+          <span style="font-size: 1em; color: white">
+            <i class="fa-solid fa-cart-shopping"></i>
           </span>
-        </p>
+          <span class="button-text">Agregar al carrito</span>
+        </button>
       </div>
-      <p class="choose-color">Escoge un color:</p>
-      <div class="colors-price">
-        <div class="colors">
-          <span class="red"></span>
-          <span class="gray"></span>
-          <span class="black"></span>
-        </div>
-        <div class="pricing">
-          <p class="new-price">$134,450</p>
-          <del class="old-price">$140,500</del>
-        </div>
-      </div>
-      <button id="button" class="button-add-cart">
-        <span style="font-size: 1em; color: white">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </span>
-        <span class="button-text">Agregar al carrito</span>
-      </button>
-      <button class="feedback">
-        <span id="white-button">? Guao, vas a ser el dueño de un Benz ?</span>
-      </button>
     </section>
   </main>
-  <script src="./src/js/app.js"></script>
+  <div id="toast-container">
+  </div>
+  <script src="./src/js/app.js" type="module"></script>
 </body>
 
 </html>

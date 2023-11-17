@@ -2,28 +2,28 @@
 /* Importa solo los íconos que necesitas */
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
-:root{
-    --color-red:#ff0000;
-    --color-white: #fff;
-    --color-black:#000;
-    --color-gray:#808080;
-    --color-bg-green:#62c256;
+:root {
+  --color-red: #ff0000;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #808080;
+  --color-bg-green: #62c256;
 }
 
 * {
-    font-family: "Poppins", sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: hidden;
-    background-color: antiquewhite;
-    padding: 0 2rem;
-  }
-  
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  background-color: antiquewhite;
+  padding: 0 2rem;
+}

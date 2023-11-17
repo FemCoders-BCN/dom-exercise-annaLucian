@@ -10,6 +10,10 @@ describe('APP', () => {
       resources: "usable",
       runScripts: "dangerously",
     });
+
+    tagMock = document.createElement("body");
+    tagMock.classList.add("tag");
+    document.body.appendChild(tagMock)
   });
 
   it("should render css", async () => {
@@ -30,4 +34,13 @@ describe('APP', () => {
     expect(changeStyle).toBeDefined();
     expect(typeof changeStyle).toBe("function");
   });
+
+  it.only("changeStyle changes the label, the add button and the background color of the button color", async () => {
+    backgroundMock.style.backgroundColor = "rgb(255, 0, 0)";
+    changeStyles();
+    expect(backgroundMock.style.backgroundColor).toBe("darkblue");
+    changeStyles();
+    expect(backgroundMock.style.backgroundColor).toBe("red");
+  });
+
 })
