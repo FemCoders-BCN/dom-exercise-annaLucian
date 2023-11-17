@@ -1,3 +1,4 @@
+
 //constantes colores
 const root = document.documentElement;
 const colorVariableRed = getComputedStyle(root).getPropertyValue("--color-red")
@@ -16,18 +17,41 @@ const tagSelector = document.querySelector(".tag")
 //selector de boton
 const btnAdd = document.querySelector(".button-add-cart")
 
-const changeColorRed = () => {
-  tagSelector.style.backgroundColor = colorVariableRed
-  btnAdd.style.backgroundColor = colorVariableRed
-  imgCard.style.backgroundImage = 'url("../../public/img/redcar.jpg")'
-  container.style.backgroundColor = "rgb(223 142 0)"
+const STYLE_PROPERTIES = {
+  VARIANT_RED: {
+    TAG_BACKGROUND_COLOR: colorVariableRed,
+    BUTTON_BACKGROUND_COLOR: colorVariableRed,
+    IMAGE_BACKGROUND_URL: 'url("../../public/img/redcar.jpeg")',
+    CONTAINER_BACKGROUND: "rgb(223 142 0)"
+  },
+  VARIANT_GRAY: {
+    TAG_BACKGROUND_COLOR: colorVariableGray,
+    BUTTON_BACKGROUND_COLOR: colorVariableGray,
+    IMAGE_BACKGROUND_URL: 'url("../../public/img/graycar.jpg")',
+    CONTAINER_BACKGROUND: "rgb(38 191 168)"
+  },
+  VARIANT_BLACK: {
+    TAG_BACKGROUND_COLOR: colorVariableBlack,
+    BUTTON_BACKGROUND_COLOR: colorVariableBlack,
+    IMAGE_BACKGROUND_URL: 'url("../../public/img/blackcar.jpg")',
+    CONTAINER_BACKGROUND: "rgb(96 193 84)"
+  }
+
 }
 
-const changeColorGray = () => {
-  tagSelector.style.backgroundColor = colorVariableGray
-  btnAdd.style.backgroundColor = colorVariableGray
-  imgCard.style.backgroundImage = 'url("../../public/img/graycar.jpg")'
+function changeStyle(style) {
+  tagSelector.style.backgroundColor = style.TAG_BACKGROUND_COLOR
+  btnAdd.style.backgroundColor = style.BUTTON_BACKGROUND_COLOR
+  imgCard.style.backgroundImage = style.IMAGE_BACKGROUND_URL
+  container.style.backgroundColor = style.CONTAINER_BACKGROUND
 }
 
-colorRed.addEventListener('click', changeColorRed)
-colorGray.addEventListener('click', changeColorGray)
+
+document.addEventListener('DOMContentLoaded', function () {
+  colorRed.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_RED))
+  colorGray.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_GRAY))
+  colorBlack.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_BLACK))
+});
+
+export { changeStyle }
+
