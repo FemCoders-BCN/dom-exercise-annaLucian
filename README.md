@@ -23,23 +23,28 @@ El testing se debe realizar utilizando Vitest. A continuación, se detalla el pr
 
 1. Clonar el repositorio
 ```
+
 git clone https://github.com/FemCoders-BCN/dom-exercise-annaLucian
 
 ```
+
 2. Navega al directorio del proyecto
 ```
+
 cd tu_repositorio
 
 ```
-3.Instala las dependencias necesarias
 
+3.Instala las dependencias necesarias
 ```
+
 npm install
 
 ```
-4-Ejecuta las pruebas utilizando Vitest
 
+4-Ejecuta las pruebas utilizando Vitest
 ```
+
 npm run test
 
 ```
