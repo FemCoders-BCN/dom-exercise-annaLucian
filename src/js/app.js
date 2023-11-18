@@ -54,14 +54,14 @@ function changeStyle(style) {
 
 }
 
-const visibleToast = (event) => {
-  event.preventDefault()
-  const feedback = document.createElement("div")
+const visibleToast = (doc) => {
+
+  const feedback = doc.createElement("div")
   feedback.classList.add("feedback")
-  const spanToast = document.createElement("span")
+  const spanToast = doc.createElement("span")
   spanToast.textContent = "¿Guao, vas a ser el dueño de un Benz ?"
   feedback.appendChild(spanToast)
-  toastContainer.appendChild(feedback)
+  doc.querySelector("#toast-container").appendChild(feedback)
 
   feedback.classList.add("show")
   setTimeout(() => {
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
   colorRed.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_RED))
   colorGray.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_GRAY))
   colorBlack.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_BLACK))
-  btnAddToCart.addEventListener('click', visibleToast)
+  btnAddToCart.addEventListener('click', () => visibleToast(document))
 });
 
-export { changeStyle }
+export { changeStyle, visibleToast }
 

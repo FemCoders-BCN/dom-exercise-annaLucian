@@ -34,18 +34,31 @@ git clone https://github.com/FemCoders-BCN/dom-exercise-annaLucian
 cd tu_repositorio
 
 ```
+3.Para poder ejecutar los test has de tener instalado Node.js. Versión LTS.
+Puedes comprobar que lo tienes instalado con el comando:
+```
 
-3.Instala las dependencias necesarias
+node -v
+
+```
+
+4.Una vez instalado Node.js, instala las dependencias necesarias:
 ```
 
 npm install
 
 ```
 
-4-Ejecuta las pruebas utilizando Vitest
+5-Ejecuta las pruebas utilizando Vitest
 ```
 
 npm run test
+
+```
+o
+```
+
+npm test
 
 ```
 
