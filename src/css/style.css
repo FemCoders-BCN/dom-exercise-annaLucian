@@ -14,7 +14,7 @@
 
 /* producto */
 .product-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 1rem 0 0.5rem;
 
@@ -24,7 +24,7 @@
   background: var(--color-white);
   display: grid;
   grid-template-rows: 45% 55%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 90px);
   box-shadow: 10px 10px 25px 0px #3c3c3c;
 }
 
@@ -168,22 +168,23 @@ button white-button {
   cursor: pointer;
   text-decoration: none;
   border: none;
-  position: fixed;
   z-index: 1;
   visibility: hidden;
 }
 
 .show {
+  margin-top: 1rem;
   visibility: visible;
-  display: block;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  margin: 6rem;
 }
 
 #toast-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 2rem;
 
 }
 
@@ -277,7 +278,7 @@ button white-button {
   .product-card {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: none;
-    height: calc(100vh - 500px);
+    height: calc(100vh - 400px);
   }
 
   .product-description {
@@ -297,4 +298,10 @@ button white-button {
   }
 
 
+}
+
+@media (min-width: 1700px) {
+  .product-card {
+    height: calc(100vh - 500px);
+  }
 }
