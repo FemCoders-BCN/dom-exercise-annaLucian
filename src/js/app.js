@@ -33,7 +33,7 @@ const STYLE_PROPERTIES = {
     TAG_BACKGROUND_COLOR: colorVariableGray,
     BUTTON_BACKGROUND_COLOR: colorVariableGray,
     IMAGE_BACKGROUND_URL: 'url("../../public/img/graycar.jpg")',
-    CONTAINER_BACKGROUND: "rgb(38 191 168)"
+    CONTAINER_BACKGROUND: "rgb(67 227 203)"
   },
   VARIANT_BLACK: {
     TAG_BACKGROUND_COLOR: colorVariableBlack,
@@ -66,19 +66,11 @@ const visibleToast = (event) => {
   feedback.classList.add("show")
   setTimeout(() => {
     feedback.classList.remove("show")
-    toastContainer.removeChild(feedback)
-  }, 10000)
+    setTimeout(() => {
+      toastContainer.removeChild(feedback)
+    }, 500)
+  }, 3000)
 
-  console.log("hola")
-}
-
-//create toast
-const createToast = () => {
-  const feedback = document.createElement("div")
-  feedback.classList.add("feedback")
-  const spanToast = document.createElement("span")
-  spanToast.textContent = "¿Guao, vas a ser el dueño de un Benz ?"
-  feedback.appendChild(spanToast)
 }
 
 
