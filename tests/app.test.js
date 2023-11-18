@@ -20,8 +20,10 @@ describe('APP', () => {
 
     document = dom.window.document
     backgroundMock = dom.window.document.querySelector('.product-description')
+    // Mock de la funcion changeStyles del app.js
     mockChangeStyleFunc = vi.fn().mockImplementation((styles) => {
       backgroundMock.style.backgroundColor = styles
+
     })
 
 
@@ -47,10 +49,9 @@ describe('APP', () => {
   it.only("should changeStyle changes the label, the add button and the background color of the button color", async () => {
 
     //simulate click on button function changeStyles
-
     mockChangeStyleFunc("red")
 
-    console.log("despues", { log: backgroundMock.style.backgroundColor });
+    console.log("despues", { bg: backgroundMock.style.backgroundColor });
 
     expect(backgroundMock.style.backgroundColor).toBe("red")
 
