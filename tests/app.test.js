@@ -1,7 +1,7 @@
 
 import { describe, expect, it, beforeAll, vi } from 'vitest'
 import { JSDOM } from 'jsdom'
-import { changeStyle, visibleToast } from '../src/js/app.js'
+import { STYLE_PROPERTIES, changeStyle, visibleToast } from '../src/js/app.js'
 
 describe('APP', () => {
   let dom
@@ -10,13 +10,13 @@ describe('APP', () => {
   let productImgeMock
   let tagMock
   let buttonAddCartMock
-  let mockChangeStyleFunc
 
   beforeAll(async () => {
     dom = await JSDOM.fromFile("index.html", {
       resources: "usable",
       runScripts: "dangerously",
     })
+
     document = dom.window.document
     backgroundMock = document.querySelector('.product-description')
     productImgeMock = document.querySelector('.product-image')
@@ -27,18 +27,6 @@ describe('APP', () => {
     productImgeMock.style.backgroundImage = "url('../../public/img/blackcar.jpeg')"
     tagMock.style.backgroundColor = "black"
     buttonAddCartMock.style.backgroundColor = "black"
-
-
-    // Mock de la funcion changeStyles del app.js
-    mockChangeStyleFunc = vi.fn().mockImplementation((colorBg, url, color) => {
-      backgroundMock.style.backgroundColor = colorBg
-      productImgeMock.style.backgroundImage = url
-      tagMock.style.backgroundColor = color
-      buttonAddCartMock.style.backgroundColor = color
-    })
-
-
-
   });
 
   it("should render css", async () => {
@@ -53,46 +41,63 @@ describe('APP', () => {
     expect(script.src).toMatch(/\/src\/js\/app.js$/);
   });
 
+
   it("should exist the function changeStyle", async () => {
     expect(changeStyle).toBeDefined();
     expect(typeof changeStyle).toBe("function");
   });
 
 
-  it("should changeStyle change the label, add button and background color to red", async () => {
-    //simulate click on button function changeStyles passing arguments to the function
-    mockChangeStyleFunc("orange", "url('../../public/img/redcar.jpeg')", "red")
+  it("should changeStyle change the label, add button and background color to red", () => {
+    //init the values of variant red
+    STYLE_PROPERTIES.VARIANT_RED.CONTAINER_BACKGROUND = "orange"
+    STYLE_PROPERTIES.VARIANT_RED.TAG_BACKGROUND_COLOR = "red"
+    STYLE_PROPERTIES.VARIANT_RED.BUTTON_BACKGROUND_COLOR = "red"
 
-    expect(tagMock.style.backgroundColor).toBe("red")
+    //simulate click on button function changeStyles passing arguments to the function
+
+    changeStyle(STYLE_PROPERTIES.VARIANT_RED, document)
     expect(backgroundMock.style.backgroundColor).toBe("orange")
     expect(productImgeMock.style.backgroundImage).toMatch(/redcar.jpeg/)
     expect(buttonAddCartMock.style.backgroundColor).toBe("red")
-  });
+    expect(tagMock.style.backgroundColor).toBe("red")
+  })
 
-  it("should changeStyle change the label, add button and background color to gray", async () => {
+  it("should changeStyle change the label, add button and background color to gray", () => {
+    //init the values of variant gray
+    STYLE_PROPERTIES.VARIANT_GRAY.CONTAINER_BACKGROUND = "turquoise"
+    STYLE_PROPERTIES.VARIANT_GRAY.TAG_BACKGROUND_COLOR = "gray"
+    STYLE_PROPERTIES.VARIANT_GRAY.BUTTON_BACKGROUND_COLOR = "gray"
+
     //simulate click on button function changeStyles passing arguments to the function
-    mockChangeStyleFunc("turquoise", "url('../../public/img/graycar.jpeg')", "gray")
 
-    expect(tagMock.style.backgroundColor).toBe("gray")
+    changeStyle(STYLE_PROPERTIES.VARIANT_GRAY, document)
     expect(backgroundMock.style.backgroundColor).toBe("turquoise")
-    expect(productImgeMock.style.backgroundImage).toMatch(/graycar.jpeg/)
+    expect(productImgeMock.style.backgroundImage).toMatch(/graycar.jpg/)
     expect(buttonAddCartMock.style.backgroundColor).toBe("gray")
-  });
+    expect(tagMock.style.backgroundColor).toBe("gray")
+  })
 
-  it("should changeStyle change the label, add button and background color to black", async () => {
+  it("should changeStyle change the label, add button and background color to black", () => {
     //Declaring new values to see the change in the black color
     backgroundMock.style.backgroundColor = "orange"
     productImgeMock.style.backgroundImage = "url('../../public/img/redcar.jpeg')"
     tagMock.style.backgroundColor = "red"
     buttonAddCartMock.style.backgroundColor = "red"
-    //simulate click on button function changeStyles passing arguments to the function
-    mockChangeStyleFunc("green", "url('../../public/img/blackcar.jpeg')", "black")
 
-    expect(tagMock.style.backgroundColor).toBe("black")
+    //init the values of variant gray
+    STYLE_PROPERTIES.VARIANT_BLACK.CONTAINER_BACKGROUND = "green"
+    STYLE_PROPERTIES.VARIANT_BLACK.TAG_BACKGROUND_COLOR = "black"
+    STYLE_PROPERTIES.VARIANT_BLACK.BUTTON_BACKGROUND_COLOR = "black"
+
+    //simulate click on button function changeStyles passing arguments to the function
+
+    changeStyle(STYLE_PROPERTIES.VARIANT_BLACK, document)
     expect(backgroundMock.style.backgroundColor).toBe("green")
-    expect(productImgeMock.style.backgroundImage).toMatch(/blackcar.jpeg/)
+    expect(productImgeMock.style.backgroundImage).toMatch(/blackcar.jpg/)
     expect(buttonAddCartMock.style.backgroundColor).toBe("black")
-  });
+    expect(tagMock.style.backgroundColor).toBe("black")
+  })
 
   it("should exist the function visibleToast", async () => {
     expect(visibleToast).toBeDefined();

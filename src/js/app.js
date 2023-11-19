@@ -10,12 +10,12 @@ const colorRed = document.querySelector(".red")
 const colorBlack = document.querySelector(".black")
 const colorGray = document.querySelector(".gray")
 //selector de imagen
-const container = document.querySelector(".product-description")
-const imgCard = document.querySelector(".product-image")
-//selector tag
-const tagSelector = document.querySelector(".tag")
-//selector de boton
-const btnAdd = document.querySelector(".button-add-cart")
+// const container = document.querySelector(".product-description")
+// const imgCard = document.querySelector(".product-image")
+// //selector tag
+// const tagSelector = document.querySelector(".tag")
+// //selector de boton
+// const btnAdd = document.querySelector(".button-add-cart")
 // const toast
 const toastContainer = document.querySelector("#toast-container")
 
@@ -45,23 +45,23 @@ const STYLE_PROPERTIES = {
 }
 
 
-function changeStyle(style) {
-  tagSelector.style.backgroundColor = style.TAG_BACKGROUND_COLOR
-  btnAdd.style.backgroundColor = style.BUTTON_BACKGROUND_COLOR
-  imgCard.style.backgroundImage = style.IMAGE_BACKGROUND_URL
-  container.style.backgroundColor = style.CONTAINER_BACKGROUND
+function changeStyle(style, document) {
+  document.querySelector(".product-description").style.backgroundColor = style.CONTAINER_BACKGROUND
+  document.querySelector(".tag").style.backgroundColor = style.TAG_BACKGROUND_COLOR
+  document.querySelector(".button-add-cart").style.backgroundColor = style.BUTTON_BACKGROUND_COLOR
+  document.querySelector(".product-image").style.backgroundImage = style.IMAGE_BACKGROUND_URL
 
 
 }
 
-const visibleToast = (doc) => {
+const visibleToast = (document) => {
 
-  const feedback = doc.createElement("div")
+  const feedback = document.createElement("div")
   feedback.classList.add("feedback")
-  const spanToast = doc.createElement("span")
+  const spanToast = document.createElement("span")
   spanToast.textContent = "¿Guao, vas a ser el dueño de un Benz ?"
   feedback.appendChild(spanToast)
-  doc.querySelector("#toast-container").appendChild(feedback)
+  document.querySelector("#toast-container").appendChild(feedback)
 
   feedback.classList.add("show")
   setTimeout(() => {
@@ -75,11 +75,11 @@ const visibleToast = (doc) => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  colorRed.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_RED))
-  colorGray.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_GRAY))
-  colorBlack.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_BLACK))
+  colorRed.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_RED, document))
+  colorGray.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_GRAY, document))
+  colorBlack.addEventListener('click', () => changeStyle(STYLE_PROPERTIES.VARIANT_BLACK, document))
   btnAddToCart.addEventListener('click', () => visibleToast(document))
 });
 
-export { changeStyle, visibleToast }
+export { changeStyle, visibleToast, STYLE_PROPERTIES }
 
