@@ -63,6 +63,11 @@ npm test
 ```
 
 Con estos pasos, podrás ejecutar y verificar las pruebas para asegurarte de que el proyecto funciona según lo esperado.
+
+### 📂 Captura Test
+
+![Vista previa del proyecto](./public/img/test-dom.png)
+
     
 ## contribuciones
 
